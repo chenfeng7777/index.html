@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浙江高考数学 · 四周速成计划</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --red: #e63946;
+    --gold: #f4a261;
+    --navy: #1d3557;
+    --blue: #457b9d;
+    --light: #a8dadc;
+    --bg: #f1faee;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --card: #ffffff;
+  }
+
+  body {
+    font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* === STARS BACKGROUND === */
+  .stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+  }
+
+  /* === HEADER === */
+  .header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+  }
+
+  /* === SECTION 1: COUNTDOWN === */
+  .countdown-section {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px;
+    padding: 36px 24px 30px;
+    text-align: center;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+  .countdown-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(230,57,70,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .exam-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .exam-date {
+    font-size: 17px;
+    color: #f4a261;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  .countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .cd-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .cd-num {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #e63946 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 80px;
+  }
+  .cd-sep {
+    font-size: 50px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.3);
+    margin-top: -6px;
+    line-height: 1;
+  }
+  .cd-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+  }
+  .progress-bar-wrap {
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    height: 6px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #e63946, #f4a261);
+    border-radius: 999px;
+    transition: width 0.5s ease;
+  }
+  .progress-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+  }
+
+  /* === SECTION 2 & 3: BUTTONS === */
+  .buttons-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .btn-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 18px;
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    user-select: none;
+  }
+  .btn-card:hover {
+    background: rgba(255,255,255,0.13);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+  .btn-card:active { transform: translateY(-1px); }
+  .btn-card.today { border-color: rgba(230,57,70,0.5); }
+  .btn-card.full { border-color: rgba(244,162,97,0.5); }
+  .btn-icon { font-size: 32px; margin-bottom: 10px; }
+  .btn-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .btn-card.today .btn-title { color: #ff6b7a; }
+  .btn-card.full .btn-title { color: #f4a261; }
+  .btn-desc { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+  /* === MODAL === */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 100;
+    backdrop-filter: blur(4px);
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: #1a1a2e;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 28px 28px 0 0;
+    padding: 8px 0 0;
+    width: 100%;
+    max-width: 780px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .modal-handle {
+    width: 40px; height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    margin: 0 auto 16px;
+  }
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+  }
+  .modal-title { font-size: 18px; font-weight: 700; }
+  .modal-close {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.2); }
+  .modal-body {
+    padding: 20px 24px 32px;
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  /* === TODAY PLAN CONTENT === */
+  .day-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #e63946, #c1121f);
+    border-radius: 12px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .day-date {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .time-block {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    border-left: 3px solid;
+  }
+  .time-block.morning { border-color: #f4a261; }
+  .time-block.afternoon { border-color: #457b9d; }
+  .time-block-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+  .time-block.morning .time-block-title { color: #f4a261; }
+  .time-block.afternoon .time-block-title { color: #a8dadc; }
+  .task-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+  }
+  .task-item:last-child { margin-bottom: 0; }
+  .task-emoji { flex-shrink: 0; font-size: 16px; }
+  .tip-box {
+    background: rgba(244,162,97,0.1);
+    border: 1px solid rgba(244,162,97,0.25);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+  }
+  .tip-box strong { color: #f4a261; }
+  .no-plan {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255,255,255,0.5);
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  /* === FULL PLAN CONTENT === */
+  .week-section {
+    margin-bottom: 28px;
+  }
+  .week-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .week-num {
+    background: linear-gradient(135deg, #f4a261, #e63946);
+    border-radius: 10px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .week-title { font-size: 16px; font-weight: 700; }
+  .week-focus { font-size: 12px; color: rgba(255,255,255,0.5); margin-left: auto; }
+  .day-row {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 12px;
+    align-items: start;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: 1px solid transparent;
+  }
+  .day-row:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .day-row.is-today {
+    border-color: rgba(230,57,70,0.5);
+    background: rgba(230,57,70,0.08);
+  }
+  .day-num-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.4);
+    padding-top: 2px;
+  }
+  .day-row.is-today .day-num-label { color: #ff6b7a; }
+  .day-date-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+  }
+  .day-summary { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .today-badge {
+    display: inline-block;
+    background: #e63946;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .score-grid {
+    background: rgba(255,255,255,0.04);
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 20px;
+  }
+  .score-grid-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .score-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 8px;
+    font-size: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.75);
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-row.header { color: rgba(255,255,255,0.4); font-size: 11px; font-weight: 700; }
+  .score-row .conservative { color: #6b7280; }
+  .score-row .target { color: #f4a261; font-weight: 700; }
+  .score-row .sprint { color: #4ade80; }
+
+  /* Scrollbar */
+  .modal-body::-webkit-scrollbar { width: 4px; }
+  .modal-body::-webkit-scrollbar-track { background: transparent; }
+  .modal-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<!-- Stars background -->
+<div class="stars" id="stars"></div>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>浙江高考数学</h1>
+    <div class="subtitle">四周速成计划 · 资源整合版</div>
+  </div>
+
+  <!-- Section 1: Countdown -->
+  <div class="countdown-section">
+    <div class="exam-label">距离高考</div>
+    <div class="exam-date">📅 2026年6月7日（浙江高考）</div>
+    <div class="countdown-grid">
+      <div class="cd-unit">
+        <div class="cd-num" id="cd-days">--</div>
+        <div class="cd-label">天</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <div class="cd-num" id="cd-hours">--</div>
+        <div class="cd-label">时</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <div class="cd-num" id="cd-mins">--</div>
+        <div class="cd-label">分</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <div class="cd-num" id="cd-secs">--</div>
+        <div class="cd-label">秒</div>
+      </div>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="progress-text" id="progress-text"></div>
+  </div>
+
+  <!-- Section 2 & 3: Buttons -->
+  <div class="buttons-row">
+    <div class="btn-card today" onclick="openToday()">
+      <div class="btn-icon">📋</div>
+      <div class="btn-title">今日计划</div>
+      <div class="btn-desc">查看今天的<br>复习任务安排</div>
+    </div>
+    <div class="btn-card full" onclick="openFull()">
+      <div class="btn-icon">🗓️</div>
+      <div class="btn-title">完整计划</div>
+      <div class="btn-desc">查看全部<br>28天复习计划</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TODAY MODAL -->
+<div class="modal-overlay" id="modal-today" onclick="closeModal('modal-today', event)">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div class="modal-title" id="today-modal-title">📋 今日计划</div>
+      <button class="modal-close" onclick="closeModal('modal-today')">✕</button>
+    </div>
+    <div class="modal-body" id="today-modal-body"></div>
+  </div>
+</div>
+
+<!-- FULL PLAN MODAL -->
+<div class="modal-overlay" id="modal-full" onclick="closeModal('modal-full', event)">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div class="modal-title">🗓️ 完整28天复习计划</div>
+      <button class="modal-close" onclick="closeModal('modal-full')">✕</button>
+    </div>
+    <div class="modal-body" id="full-modal-body"></div>
+  </div>
+</div>
+
+<script>
+// ===== PLAN DATA =====
+const PLAN_START = new Date('2026-05-10T00:00:00'); // Day 1
+const EXAM_DATE  = new Date('2026-06-07T09:00:00'); // 高考开考时间
+
+const dailyPlans = [
+  // Week 1
+  {
+    day: 1, week: 1, weekday: '周一',
+    morning: [
+      { emoji: '📖', text: '教案速攻：集合运算 + 常用逻辑用语' },
+      { emoji: '📝', text: '五三第1章：基础选填题（15题）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：基本初等函数——指数/对数/幂函数图像与性质' },
+      { emoji: '📝', text: '五三第2章：函数概念与性质专项（15题）' },
+    ],
+    summary: '集合·逻辑速攻 → 函数基础'
+  },
+  {
+    day: 2, week: 1, weekday: '周二',
+    morning: [
+      { emoji: '📖', text: '教案：函数综合——单调性、奇偶性、图像变换' },
+      { emoji: '📝', text: '五三第3章：指数对数函数（选填15题）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：复合函数·反函数；函数大题训练' },
+      { emoji: '📝', text: '五三第4章：幂函数·函数综合（10题）' },
+    ],
+    summary: '函数综合：单调·奇偶·复合'
+  },
+  {
+    day: 3, week: 1, weekday: '周三',
+    morning: [
+      { emoji: '📖', text: '教案：导数运算法则（多项式/指对数）；切线方程' },
+      { emoji: '📝', text: '五三第19章：导数选填题（前10题，基础型）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：导数应用——极值、最值、单调区间' },
+      { emoji: '📝', text: '函数+导数综合选填专练（10题）' },
+    ],
+    summary: '导数基础：运算·切线·极值'
+  },
+  {
+    day: 4, week: 1, weekday: '周四',
+    morning: [
+      { emoji: '📖', text: '教案：三角函数定义、公式、诱导公式、和差化积' },
+      { emoji: '📝', text: '五三第5章：三角函数选填（前15题）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：正弦/余弦图像（A·ω·φ）；正余弦定理解三角形' },
+      { emoji: '📝', text: '五三第5章：三角大题题型（2道练习）' },
+    ],
+    summary: '三角函数：定义·图像·定理'
+  },
+  {
+    day: 5, week: 1, weekday: '周五',
+    morning: [
+      { emoji: '📝', text: '三角函数第15题完整大题训练（2道，限时30分钟）' },
+      { emoji: '📖', text: '教案：平面向量——数量积、夹角、坐标化' },
+    ],
+    afternoon: [
+      { emoji: '📝', text: '五三第6章：向量选填专练（10题）' },
+      { emoji: '🔍', text: '向量错题整理 + 三角公式卡片整理' },
+    ],
+    summary: '三角大题专练 + 平面向量'
+  },
+  {
+    day: 6, week: 1, weekday: '周六',
+    morning: [
+      { emoji: '📖', text: '教案：复数四则运算、模、共轭、几何意义' },
+      { emoji: '📝', text: '五三第8章：复数选填专练（10题）' },
+    ],
+    afternoon: [
+      { emoji: '📝', text: '本周全模块综合选填训练（仿真8单+3多）' },
+      { emoji: '🔍', text: '整理公式速查卡（三角/导数/函数）' },
+    ],
+    summary: '复数 + 第一周综合训练'
+  },
+  {
+    day: 7, week: 1, weekday: '周日',
+    morning: [
+      { emoji: '⭐', text: '周测①：8单选+3多选+3填空（60分钟）' },
+      { emoji: '', text: '题目来源：五三各章节混合选填' },
+    ],
+    afternoon: [
+      { emoji: '🔍', text: '精细对卷，按模块统计失分' },
+      { emoji: '📝', text: '五三对应薄弱章节补做5~10题' },
+    ],
+    summary: '⭐ 周测① · 检验选填基线水平'
+  },
+  // Week 2
+  {
+    day: 8, week: 2, weekday: '周一',
+    morning: [
+      { emoji: '📖', text: '教案：等差/等比数列——通项公式、求和公式' },
+      { emoji: '📝', text: '五三第9章：等差等比基础（15题，选填为主）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：数列进阶——错位相减法、裂项求和法' },
+      { emoji: '📝', text: '五三第9章：数列进阶题（10题）' },
+    ],
+    summary: '数列（18B）：通项·求和·进阶'
+  },
+  {
+    day: 9, week: 2, weekday: '周二',
+    morning: [
+      { emoji: '📖', text: '教案：递推关系求通项；数学归纳法证明格式' },
+      { emoji: '📝', text: '五三第9章：数列大题（第18题数列版，2道完整）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：数学归纳法标准书写练习（1道完整证明）' },
+      { emoji: '🔍', text: '数列错题整理 + 整理"数列版模板"一页纸' },
+    ],
+    summary: '递推数列 + 数学归纳法 + 模板'
+  },
+  {
+    day: 10, week: 2, weekday: '周三',
+    morning: [
+      { emoji: '📖', text: '教案：概率基础——古典/几何概型、条件概率、独立事件' },
+      { emoji: '📝', text: '五三第11章：概率选填（10题）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：随机变量+分布列；期望方差；有放回取球模型' },
+      { emoji: '📝', text: '五三第12章：统计与随机变量（10题）' },
+    ],
+    summary: '概率统计（18A）：古典→分布列'
+  },
+  {
+    day: 11, week: 2, weekday: '周四',
+    morning: [
+      { emoji: '📝', text: '概率统计第18题完整大题训练（2道，限时40分钟）' },
+      { emoji: '📖', text: '教案：有放回取球模型——分布列推导+期望计算' },
+    ],
+    afternoon: [
+      { emoji: '🔍', text: '⚠ 核心任务：整理两套第18题模板对比（今天最重要！）' },
+      { emoji: '🔍', text: '制作"概率版模板"与"数列版模板"各一页纸对比' },
+    ],
+    summary: '⚠ 双模板对比日（本周核心）'
+  },
+  {
+    day: 12, week: 2, weekday: '周五',
+    morning: [
+      { emoji: '📝', text: '不等式（AM-GM最值）；五三第7章10题' },
+      { emoji: '📝', text: '综合选填训练：8单+3多+3填（限时55分钟）' },
+    ],
+    afternoon: [
+      { emoji: '📝', text: '两套第18题模板各做1道（随机选版本）' },
+      { emoji: '🔍', text: '错题整理 + 公式卡复习' },
+    ],
+    summary: '不等式 + 第18题双版本强化'
+  },
+  {
+    day: 13, week: 2, weekday: '周六',
+    morning: [
+      { emoji: '⭐', text: '周测②：选填全套 + 第18题大题1道（随机版本），限时75分钟' },
+    ],
+    afternoon: [
+      { emoji: '🔍', text: '对卷复盘：统计两套第18题哪套更薄弱' },
+      { emoji: '📝', text: '五三对应薄弱章节补练5~10题' },
+    ],
+    summary: '⭐ 周测② + 第18题双版本测试'
+  },
+  {
+    day: 14, week: 2, weekday: '周日',
+    morning: [
+      { emoji: '🎯', text: '全真模拟①：金考卷第1套，严格120分钟' },
+    ],
+    afternoon: [
+      { emoji: '🔍', text: '精细对卷：按题型统计得分，重点记录第18题版本与得分' },
+      { emoji: '🔍', text: '标注薄弱模块，制定第三周攻坚重点' },
+    ],
+    summary: '🎯 金考卷① · 首次全真模拟'
+  },
+  // Week 3
+  {
+    day: 15, week: 3, weekday: '周一',
+    morning: [
+      { emoji: '📖', text: '教案：直线方程三种形式、位置关系、点线距' },
+      { emoji: '📝', text: '五三第13章：直线与圆选填（15题）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：圆的方程（标准/一般）；直线与圆关系+弦长' },
+      { emoji: '📝', text: '五三第13章：圆的综合练习（10题）' },
+    ],
+    summary: '解析几何：直线与圆基础'
+  },
+  {
+    day: 16, week: 3, weekday: '周二',
+    morning: [
+      { emoji: '📖', text: '教案：椭圆——定义、标准方程、焦点、中点弦、联立技巧' },
+      { emoji: '📝', text: '五三第14章：椭圆选填（10题）' },
+    ],
+    afternoon: [
+      { emoji: '📝', text: '五三第14章：椭圆大题（第19题题型，2道限时40分钟）' },
+      { emoji: '🔍', text: '椭圆联立运算专项纠错' },
+    ],
+    summary: '椭圆（第19题核心）：方程·大题'
+  },
+  {
+    day: 17, week: 3, weekday: '周三',
+    morning: [
+      { emoji: '📖', text: '教案：抛物线焦点/准线/焦半径；双曲线渐近线（了解型）' },
+      { emoji: '📝', text: '五三第15章：双曲线/抛物线选填（10题）' },
+    ],
+    afternoon: [
+      { emoji: '📝', text: '五三第16章：圆锥曲线综合大题（2道，第19题完整训练）' },
+      { emoji: '🔍', text: '解析几何运算错误专项纠正' },
+    ],
+    summary: '抛物线·双曲线 + 圆锥曲线综合'
+  },
+  {
+    day: 18, week: 3, weekday: '周四',
+    morning: [
+      { emoji: '📖', text: '教案：立体几何——三视图、体积表面积、建系方法' },
+      { emoji: '📝', text: '五三第17章：立体几何选填（10题）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：空间向量法——法向量求解、线面角、二面角' },
+      { emoji: '📝', text: '五三第18章：立体几何大题入门（1道）' },
+    ],
+    summary: '立体几何：三视图 + 空间向量'
+  },
+  {
+    day: 19, week: 3, weekday: '周五',
+    morning: [
+      { emoji: '📝', text: '五三第18章：立体几何大题（第16题类型，2道限时40分钟）' },
+      { emoji: '📖', text: '建系规范练习：完整写出坐标系说明' },
+    ],
+    afternoon: [
+      { emoji: '🔍', text: '错题整理：立几+解析几何各模块失分点归纳' },
+      { emoji: '📝', text: '五三选填综合训练（几何专项15题）' },
+    ],
+    summary: '立体几何大题 + 几何综合训练'
+  },
+  {
+    day: 20, week: 3, weekday: '周六',
+    morning: [
+      { emoji: '⭐', text: '周测③：选填全套 + 第16题+第19题各1道，限时90分钟' },
+    ],
+    afternoon: [
+      { emoji: '🔍', text: '对卷复盘：分析大题步骤书写与运算准确率' },
+      { emoji: '📝', text: '五三薄弱章节补练（针对周测③失分模块）' },
+    ],
+    summary: '⭐ 周测③ + 几何大题步骤分析'
+  },
+  {
+    day: 21, week: 3, weekday: '周日',
+    morning: [
+      { emoji: '🎯', text: '全真模拟②：金考卷第2套，严格120分钟' },
+    ],
+    afternoon: [
+      { emoji: '🔍', text: '精细对卷：重点分析大题步骤分；记录第18题版本' },
+      { emoji: '🔍', text: '与模拟①得分对比，确定第四周攻坚重点' },
+    ],
+    summary: '🎯 金考卷② · 步骤分专项分析'
+  },
+  // Week 4
+  {
+    day: 22, week: 4, weekday: '周一',
+    morning: [
+      { emoji: '📖', text: '教案：导数第17题(1)——切线方程（必须全对）' },
+      { emoji: '📝', text: '五三第19章：导数选填（10题，含切线类）' },
+    ],
+    afternoon: [
+      { emoji: '📖', text: '教案：导数第17题(2)——三零点/c范围，图像分析法' },
+      { emoji: '📝', text: '五三第20章：导数大题（第(1)(2)问专练，2道）' },
+    ],
+    summary: '导数第17题：切线 + 零点范围'
+  },
+  {
+    day: 23, week: 4, weekday: '周二',
+    morning: [
+      { emoji: '📖', text: '教案：导数第17题(3)——必要不充分条件证明思路' },
+      { emoji: '📝', text: '五三第20章：导数压轴大题（完整2道，含证明）' },
+    ],
+    afternoon: [
+      { emoji: '📝', text: '根据两次全真成绩，五三对应薄弱章节定向补练' },
+      { emoji: '🔍', text: '第18题两套模板各做1道（最终确认）' },
+    ],
+    summary: '导数压轴证明 + 薄弱章节定向补练'
+  },
+  {
+    day: 24, week: 4, weekday: '周三',
+    morning: [
+      { emoji: '📝', text: '多选题专项训练：保守策略练习（五三混合15题）' },
+    ],
+    afternoon: [
+      { emoji: '🎯', text: '全真模拟③：金考卷第3套，严格120分钟' },
+    ],
+    summary: '多选题专项 + 🎯 金考卷③'
+  },
+  {
+    day: 25, week: 4, weekday: '周四',
+    morning: [
+      { emoji: '🔍', text: '对卷③ + 建立最终错题清单' },
+      { emoji: '🔍', text: '答题时间分配演练：大题顺序15→18→16→17→19' },
+    ],
+    afternoon: [
+      { emoji: '📝', text: '各大题保底训练：每题只做前2问（五三，5道各1题）' },
+      { emoji: '🔍', text: '整理最终公式手册（A4一页，考场速查）' },
+    ],
+    summary: '复盘③ + 错题清单 + 公式手册'
+  },
+  {
+    day: 26, week: 4, weekday: '周五',
+    morning: [
+      { emoji: '🎯', text: '全真模拟④：金考卷第4套，严格120分钟' },
+    ],
+    afternoon: [
+      { emoji: '🔍', text: '对卷④：与模拟①对比进步幅度' },
+      { emoji: '📝', text: '针对仍然失分的1~2个模块，五三补做5题' },
+    ],
+    summary: '🎯 金考卷④ + 进步幅度对比'
+  },
+  {
+    day: 27, week: 4, weekday: '周六',
+    morning: [
+      { emoji: '🎯', text: '全真模拟⑤：金考卷第5套，严格120分钟' },
+    ],
+    afternoon: [
+      { emoji: '🔍', text: '对卷⑤：确认考场策略（多选保守方案、答题顺序）' },
+      { emoji: '🔍', text: '浏览最终公式手册' },
+    ],
+    summary: '🎯 金考卷⑤ · 最终确认考场策略'
+  },
+  {
+    day: 28, week: 4, weekday: '周日',
+    morning: [
+      { emoji: '📖', text: '轻量复习：浏览公式卡+错题本（约1.5小时，不做新题）' },
+    ],
+    afternoon: [
+      { emoji: '🎒', text: '整理考场用品；调整状态；保证充足睡眠' },
+      { emoji: '💪', text: '你已经准备好了，明天全力以赴！' },
+    ],
+    summary: '轻量收尾 · 调整状态迎高考'
+  },
+];
+
+const weekLabels = {
+  1: { title: '基础夯实', focus: '集合·函数·导数·三角·复数' },
+  2: { title: '第18题双线并进', focus: '数列（18B）+ 概率统计（18A）' },
+  3: { title: '几何攻坚', focus: '解析几何（19题）+ 立体几何（16题）' },
+  4: { title: '导数专攻 + 金考卷冲刺', focus: '导数（17题）+ 全卷综合' },
+};
+
+// ===== HELPERS =====
+function getDayNumber() {
+  const now = new Date();
+  const start = new Date('2026-05-10T00:00:00');
+  const diff = now - start;
+  if (diff < 0) return 0; // Before plan starts
+  const day = Math.floor(diff / (1000*60*60*24)) + 1;
+  return Math.min(day, 28);
+}
+
+function getPlanDate(dayNum) {
+  const d = new Date('2026-05-10');
+  d.setDate(d.getDate() + dayNum - 1);
+  return d.toLocaleDateString('zh-CN', { month:'long', day:'numeric', weekday:'short' });
+}
+
+// ===== COUNTDOWN =====
+function updateCountdown() {
+  const now = new Date();
+  const diff = EXAM_DATE - now;
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = '0';
+    document.getElementById('cd-hours').textContent = '00';
+    document.getElementById('cd-mins').textContent = '00';
+    document.getElementById('cd-secs').textContent = '00';
+    return;
+  }
+  const days  = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const mins  = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const secs  = Math.floor((diff % (1000*60)) / 1000);
+  document.getElementById('cd-days').textContent  = days;
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+  document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+
+  // Progress: from plan start (May 10) to exam (June 7) = 28 days
+  const planStart = new Date('2026-05-10T00:00:00');
+  const totalDuration = EXAM_DATE - planStart;
+  const elapsed = now - planStart;
+  const progress = Math.max(0, Math.min(100, (elapsed / totalDuration) * 100));
+  document.getElementById('progress-bar').style.width = progress.toFixed(1) + '%';
+  const dayN = getDayNumber();
+  if (dayN > 0 && dayN <= 28) {
+    document.getElementById('progress-text').textContent = `复习进度 Day ${dayN} / 28`;
+  } else if (dayN === 0) {
+    document.getElementById('progress-text').textContent = '计划明天（5月10日）正式开始';
+  } else {
+    document.getElementById('progress-text').textContent = '计划完成，加油！';
+  }
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ===== MODAL =====
+function closeModal(id, evt) {
+  if (evt && evt.target !== document.getElementById(id)) return;
+  document.getElementById(id).classList.remove('active');
+}
+
+function openToday() {
+  const dayN = getDayNumber();
+  const titleEl = document.getElementById('today-modal-title');
+  const bodyEl = document.getElementById('today-modal-body');
+
+  if (dayN === 0) {
+    titleEl.textContent = '📋 今日计划';
+    bodyEl.innerHTML = `<div class="no-plan">🌙 计划将于<strong> 明天（5月10日）</strong> 正式启动<br>好好休息，明天全力出发！</div>`;
+  } else if (dayN > 28) {
+    titleEl.textContent = '📋 今日计划';
+    bodyEl.innerHTML = `<div class="no-plan">🎉 28天计划已全部完成！<br>你已经做好了充分准备<br>明天高考，全力以赴！💪</div>`;
+  } else {
+    const plan = dailyPlans[dayN - 1];
+    titleEl.textContent = `📋 今日计划 · Day ${plan.day}`;
+    bodyEl.innerHTML = renderTodayPlan(plan);
+  }
+  document.getElementById('modal-today').classList.add('active');
+}
+
+function renderTodayPlan(plan) {
+  const morningTasks = plan.morning.map(t =>
+    `<div class="task-item"><span class="task-emoji">${t.emoji}</span><span>${t.text}</span></div>`
+  ).join('');
+  const afternoonTasks = plan.afternoon.map(t =>
+    `<div class="task-item"><span class="task-emoji">${t.emoji}</span><span>${t.text}</span></div>`
+  ).join('');
+
+  const weekTips = {
+    1: '✅ 三角函数第15题（13分）是最易拿满的大题，Day4-5要专项练透\n⚠️ 多选题每题6分，本周先熟悉题型格式',
+    2: '⚠️ 第18题无法提前知晓考哪个版本，两套模板都必须练熟！\n✅ Day11下午"双模板对比"是本周最重要的下午，不要跳过',
+    3: '✅ 解析几何第19题(1)求曲线方程——必须全对，是送分项\n⚠️ 解析几何每题运算量大，做大题时严格计时（每道控制15分钟）',
+    4: '✅ 答题顺序建议：15→18→16→17→19（由易到难）\n⚠️ 最后两天（Day27-28）不做新题，浏览公式卡+错题本保持状态',
+  };
+
+  return `
+    <div class="day-badge">Day ${plan.day} · 第${plan.week}周 · ${plan.weekday}</div>
+    <div class="day-date">${getPlanDate(plan.day)}</div>
+
+    <div class="time-block morning">
+      <div class="time-block-title">☀️ 上午 · 约2小时</div>
+      ${morningTasks}
+    </div>
+
+    <div class="time-block afternoon">
+      <div class="time-block-title">🌙 下午 / 晚上 · 约2~3小时</div>
+      ${afternoonTasks}
+    </div>
+
+    <div class="tip-box">
+      <strong>📌 第${plan.week}周提示</strong><br>
+      ${weekTips[plan.week].replace(/\n/g, '<br>')}
+    </div>
+  `;
+}
+
+// ===== FULL PLAN =====
+function openFull() {
+  const bodyEl = document.getElementById('full-modal-body');
+  const todayDay = getDayNumber();
+  let html = '';
+
+  for (let w = 1; w <= 4; w++) {
+    const wl = weekLabels[w];
+    html += `<div class="week-section">
+      <div class="week-header">
+        <div class="week-num">第${w}周</div>
+        <div class="week-title">${wl.title}</div>
+        <div class="week-focus">${wl.focus}</div>
+      </div>`;
+
+    dailyPlans.filter(p => p.week === w).forEach(plan => {
+      const isToday = plan.day === todayDay;
+      const dateStr = getPlanDate(plan.day);
+      html += `<div class="day-row${isToday ? ' is-today' : ''}" onclick="openDayDetail(${plan.day})">
+        <div>
+          <div class="day-num-label">Day ${plan.day} · ${plan.weekday}${isToday ? '<span class="today-badge">今天</span>' : ''}</div>
+          <div class="day-date-label">${dateStr}</div>
+        </div>
+        <div class="day-summary">${plan.summary}</div>
+      </div>`;
+    });
+
+    html += '</div>';
+  }
+
+  // Score targets
+  html += `<div class="score-grid">
+    <div class="score-grid-title">🎯 分段得分目标</div>
+    <div class="score-row header"><span>题型</span><span class="conservative">保守</span><span class="target">目标</span><span class="sprint">冲刺</span></div>
+    <div class="score-row"><span>单选（8题·40分）</span><span class="conservative">28</span><span class="target">34</span><span class="sprint">40</span></div>
+    <div class="score-row"><span>多选（3题·18分）</span><span class="conservative">6</span><span class="target">10</span><span class="sprint">15</span></div>
+    <div class="score-row"><span>填空（3题·15分）</span><span class="conservative">5</span><span class="target">10</span><span class="sprint">15</span></div>
+    <div class="score-row"><span>第15题 三角（13分）</span><span class="conservative">8</span><span class="target">11</span><span class="sprint">13</span></div>
+    <div class="score-row"><span>第16题 立体几何（15分）</span><span class="conservative">8</span><span class="target">11</span><span class="sprint">13</span></div>
+    <div class="score-row"><span>第17题 导数（15分）</span><span class="conservative">5</span><span class="target">8</span><span class="sprint">12</span></div>
+    <div class="score-row"><span>第18题 概率/数列（17分）</span><span class="conservative">8</span><span class="target">13</span><span class="sprint">17</span></div>
+    <div class="score-row"><span>第19题 解析几何（17分）</span><span class="conservative">5</span><span class="target">8</span><span class="sprint">12</span></div>
+    <div class="score-row" style="border-top:1px solid rgba(255,255,255,0.15);margin-top:4px;padding-top:10px;font-weight:700;">
+      <span>合计（满分150）</span><span class="conservative">≥73</span><span class="target">≥105</span><span class="sprint">≥137</span>
+    </div>
+  </div>`;
+
+  bodyEl.innerHTML = html;
+  document.getElementById('modal-full').classList.add('active');
+}
+
+function openDayDetail(dayNum) {
+  // Close full modal, open today modal with specific day
+  closeModal('modal-full');
+  setTimeout(() => {
+    const plan = dailyPlans[dayNum - 1];
+    const titleEl = document.getElementById('today-modal-title');
+    const bodyEl = document.getElementById('today-modal-body');
+    titleEl.textContent = `📋 Day ${plan.day} 计划`;
+    bodyEl.innerHTML = renderTodayPlan(plan);
+    document.getElementById('modal-today').classList.add('active');
+  }, 200);
+}
+
+// ===== STARS =====
+(function createStars() {
+  const container = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    star.style.cssText = `
+      width:${size}px; height:${size}px;
+      top:${Math.random()*100}%;
+      left:${Math.random()*100}%;
+      animation-delay:${Math.random()*4}s;
+      animation-duration:${2+Math.random()*3}s;
+    `;
+    container.appendChild(star);
+  }
+})();
+</script>
+</body>
+</html>
